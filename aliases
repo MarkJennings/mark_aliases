@@ -1,3 +1,6 @@
+# Note: Workspace sourcing is different for every computer, do that in ~/.bash_aliases
+# ex. alias catk='source ~/catkin_ws/devel/setup.bash'
+
 # Source the current repo, replacing any previous repo sourcing commands
 alias sourcethis='unset CMAKE_PREFIX_PATH;source ./devel/setup.bash'
   
@@ -17,5 +20,11 @@ alias cmfast='gohome && catkin build --no-deps'
 # Get current package path
 alias rpp='echo $ROS_PACKAGE_PATH'
 
+# Navigation shortcuts
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# Set git login info
+alias gitme='git config --global user.name MarkJennings && git config --global user.email markjennings97@gmail.com'
+alias gitut='git config --global user.name MarkJennings1997 && git config --global user.email markjennings@utexas.edu'
