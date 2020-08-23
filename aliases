@@ -29,5 +29,6 @@ alias ....='cd ../../..'
 alias gitme='git config --global user.name MarkJennings && git config --global user.email markjennings97@gmail.com'
 alias gitut='git config --global user.name MarkJennings1997 && git config --global user.email markjennings@utexas.edu'
 
-# Add interactive and verbose flags to the default rm to mitigate accidental deletions
-alias rm='rm -iv'
+# Double-check before permanently deleting files with rm
+# Warning: Overriding the default linux commands can be a mistake
+alias rm='rm -i'
