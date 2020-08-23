@@ -28,3 +28,6 @@ alias ....='cd ../../..'
 # Set git login info
 alias gitme='git config --global user.name MarkJennings && git config --global user.email markjennings97@gmail.com'
 alias gitut='git config --global user.name MarkJennings1997 && git config --global user.email markjennings@utexas.edu'
+
+# Add interactive and verbose flags to the default rm to mitigate accidental deletions
+alias rm='rm -iv'
