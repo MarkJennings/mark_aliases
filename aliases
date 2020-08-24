@@ -32,3 +32,7 @@ alias gitut='git config --global user.name MarkJennings1997 && git config --glob
 # Double-check before permanently deleting files with rm
 # Warning: Overriding the default linux commands can be a mistake
 alias rm='rm -i'
+
+# Sleep computer
+# Requires sudo apt install pm-utils
+alias zzz='sudo pm-suspend'
