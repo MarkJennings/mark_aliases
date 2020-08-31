@@ -1,3 +1,6 @@
+# Important: Make sure to put the following line in your .bashrc
+# source ~/Documents/mark_aliases/aliases
+
 # Note: Workspace sourcing is different for every computer, do that in ~/.bash_aliases
 # ex. alias catk='source ~/catkin_ws/devel/setup.bash'
 
@@ -36,5 +39,8 @@ alias rm='rm -i'
 # Sleep computer
 # Requires sudo apt install pm-utils
 alias zzz='sudo pm-suspend'
+
+# Just for fun: ~3% chance of cow fortunes every time a new terminal is opened
+if [ $RANDOM -le 1000 ]; then fortune | cowsay; fi
 
 # source ~/Documents/mark_aliases/aliases
