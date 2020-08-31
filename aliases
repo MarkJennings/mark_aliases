@@ -36,3 +36,5 @@ alias rm='rm -i'
 # Sleep computer
 # Requires sudo apt install pm-utils
 alias zzz='sudo pm-suspend'
+
+# source ~/Documents/mark_aliases/aliases
