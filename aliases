@@ -40,6 +40,9 @@ alias rm='rm -i'
 # Requires sudo apt install pm-utils
 alias zzz='sudo pm-suspend'
 
+# Restart WiFi (useful for after waking up from sleep)
+alias wakeup='sudo service network-manager restart'
+
 # Just for fun: ~3% chance of cow fortunes every time a new terminal is opened
 if [ $RANDOM -le 1000 ]; then fortune | cowsay; fi
 
