@@ -44,7 +44,8 @@ alias wake='sudo service network-manager restart'
 # Test internet connection
 alias pingg='ping www.google.com'
 
-# Open Apptronik doxygen
+# Apptronik doxygen
+export APPTRONIK_WS_PATH=~/apptronik_ws
 alias doxy='firefox ~/apptronik_ws/src/apptronik_core/00_docs/index.html'
 
 # Just for fun: ~3% chance of cow fortunes every time a new terminal is opened
