@@ -12,13 +12,13 @@ alias gohome='cd $(echo $CMAKE_PREFIX_PATH | cut -d ':' -f 1);cd ..'
   
 # Automatic catkin build from any folder (use in conjunction with the above one-liner)
 # Builds in Release mode, which can enable optimizations for some packages
-alias cm='(gohome && exec catkin build -DCMAKE_BUILD_TYPE=Release --summarize)'
+alias cm='(gohome && exec catkin build -j3 -DCMAKE_BUILD_TYPE=Release --summarize)'
   
 # Clean catkin build (delete the generated folders, then catkin build)
-alias cmclean='(gohome && rm -rf build devel && exec catkin build --summarize)'
+alias cmclean='(gohome && rm -rf build devel && exec catkin build -j3 --summarize)'
  
 # Build just the package specified after this alias, i.e. 'cmfast my_pkg'
-alias cmfast='gohome && catkin build --no-deps'
+alias cmfast='gohome && catkin build -j3 --no-deps'
 
 # Get current package path
 alias rpp='echo $ROS_PACKAGE_PATH'
@@ -44,11 +44,13 @@ alias wake='sudo service network-manager restart'
 # Test internet connection
 alias pingg='ping www.google.com'
 
+# Brighten screens past default limit
+alias brighten_laptop='xrandr --output eDP-1 --brightness 1.3'
+alias brighten_monitor='xrandr --output DP-1 --brightness 1.1'
+
 # Apptronik doxygen
 export APPTRONIK_WS_PATH=~/apptronik_ws
 alias doxy='firefox ~/apptronik_ws/src/apptronik_core/00_docs/index.html'
 
 # Just for fun: ~3% chance of cow fortunes every time a new terminal is opened
 if [ $RANDOM -le 1000 ]; then fortune | cowsay; fi
-
-# source ~/Documents/mark_aliases/aliases
