@@ -20,6 +20,8 @@ alias cmclean='(gohome && rm -rf build devel && exec catkin build -j3 --summariz
 # Build just the package specified after this alias, i.e. 'cmfast my_pkg'
 alias cmfast='gohome && catkin build -j3 --no-deps'
 
+alias killros='killall -9 roscore; killall -9 rosmaster'
+
 # Get current package path
 alias rpp='echo $ROS_PACKAGE_PATH'
 
@@ -44,9 +46,24 @@ alias wake='sudo service network-manager restart'
 # Test internet connection
 alias pingg='ping www.google.com'
 
-# Brighten screens past default limit
-alias brighten_laptop='xrandr --output eDP-1 --brightness 1.3'
-alias brighten_monitor='xrandr --output DP-1 --brightness 1.1'
+# Brighten screens past default limits bc my room is too sunny :)
+function brighten(){
+	# Check parameters
+	if [ $# != 2 ]
+	then
+		echo 1st parameter is screen type, laptop or monitor are accepted.
+		echo 2nd parameter is brightness multiplier, 1.0 by default.
+	fi
+
+	# Brighten with xrandr
+	if [ $1 = laptop ]
+	then
+		xrandr --output eDP-1 --brightness $2
+	elif [ $1 = monitor ]
+	then
+		xrandr --output DP-1 --brightness $2
+	fi
+}
 
 # Apptronik doxygen
 export APPTRONIK_WS_PATH=~/apptronik_ws
