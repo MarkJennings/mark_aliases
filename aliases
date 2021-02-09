@@ -48,21 +48,21 @@ alias pingg='ping www.google.com'
 
 # Brighten screens past default limits bc my room is too sunny :)
 function brighten(){
-	# Check parameters
-	if [ $# != 2 ]
+	# If number of parameters is incorrect, set to default values
+	# Tip: just use 'brighten' to get these values
+	if [ "$#" != 2 ]
 	then
 		xrandr --output eDP-1 --brightness 1.3
 		xrandr --output DP-1 --brightness 1.1
-		echo Brightness set to selected values.
-		echo 1st parameter is screen type, laptop or monitor are accepted.
-		echo 2nd parameter is brightness multiplier, 1.0 by default.
+		echo No parameters selected, so laptop set to 1.3 and monitor set to 1.1.
+		echo 1st parameter is screen type: laptop, l, monitor, or m are accepted.
+		echo 2nd parameter is brightness multiplier: 1.0 by default.
 	fi
-
-	# Brighten with xrandr
-	if [ $1 = laptop ] || [ $1 = l ]
+	# Brighten with parameters
+	if [ "$1" = laptop ] || [ "$1" = l ]
 	then
 		xrandr --output eDP-1 --brightness $2
-	elif [ $1 = monitor ] || [ $1 = m ]
+	elif [ "$1" = monitor ] || [ "$1" = m ]
 	then
 		xrandr --output DP-1 --brightness $2
 	fi
