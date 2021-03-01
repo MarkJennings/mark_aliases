@@ -20,6 +20,9 @@ alias cmclean='(gohome && rm -rf build devel && exec catkin build -j3 --summariz
 # Build just the package specified after this alias, i.e. 'cmfast my_pkg'
 alias cmfast='gohome && catkin build -j3 --no-deps'
 
+# Build just the external Scorpio package
+alias cmscorpio='cmfast scorpio_cortex_plugins'
+
 # Sometimes ROS just refuses to die
 alias killros='killall -9 roscore; killall -9 rosmaster'
 
