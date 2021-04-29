@@ -23,6 +23,9 @@ alias cmfast='gohome && catkin build -j3 --no-deps'
 # Build just the external Scorpio package
 alias cmscorpio='cmfast scorpio_cortex_plugins'
 
+# Build just the NRG Scorpio package
+alias cmnrg='cmfast nrg_scorpio'
+
 # Sometimes ROS just refuses to die
 alias killros='killall -9 roscore; killall -9 rosmaster'
 
