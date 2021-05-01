@@ -29,8 +29,22 @@ alias cmnrg='cmfast nrg_scorpio'
 # Sometimes ROS just refuses to die
 alias killros='killall -9 roscore; killall -9 rosmaster'
 
-# Get current package path
+# Print current ROS package path
 alias rpp='echo $ROS_PACKAGE_PATH'
+
+# Format a file, like 'clangfile foo.cpp'
+alias clangfile='clang-format-10 -i -style=file'
+function clangthis(){
+	# If no parameters given, clang entire folder (and subfolders)
+	if [ "$#" = 0 ]; then
+		find . -name '*.h' -or -name '*.hpp' -or -name '*.cpp' -or -name '*.cc' | xargs clang-format-10 -i -style=file $1
+		echo Clang formatted this folder
+	# Otherwise, clang up to 5 different file inputs
+	else
+		clang-format-10 -i -style=file $1 $2 $3 $4 $5
+		echo Clang formatted $1 $2 $3 $4 $5
+	fi
+}
 
 # Brighten screens past default limits bc my room is too sunny :)
 # 1st parameter is screen type: laptop, l, monitor, or m are accepted
@@ -45,7 +59,7 @@ function brighten(){
 	elif [ "$#" = 1 ]; then
 		xrandr --output eDP-1 --brightness $1
 		xrandr --output DP-1 --brightness $1
-		echo Brightness on all devices set to $1.
+		echo Brightness on all devices set to $1
 	# If two parameters are given, set specific device to that value
 	elif [ "$#" = 2 ]; then
 		if [ "$1" = laptop ] || [ "$1" = l ]
@@ -70,10 +84,9 @@ alias ....='cd ../../..'
 
 # Set git login info
 alias gitme='git config --global user.name MarkJennings && git config --global user.email markjennings97@gmail.com'
-alias gitut='git config --global user.name MarkJenningsNRG && git config --global user.email markjennings@utexas.edu'
 
 # Double-check before permanently deleting files with rm
-# Warning: Overriding the default linux commands is controversial
+# Warning: Overriding default Linux commands is... controversial
 alias rm='rm -i'
 
 # Sleep computer
@@ -88,5 +101,5 @@ alias pingg='ping www.google.com'
 export APPTRONIK_WS_PATH=~/apptronik_ws
 alias doxy='firefox ~/apptronik_ws/src/apptronik_core/00_docs/index.html'
 
-# Just for fun: ~3% chance of cow fortunes every time a new terminal is opened
+# Just for fun: ~3% chance of cow fortunes every time a new terminal is opened :D
 if [ $RANDOM -le 1000 ]; then fortune | cowsay; fi
