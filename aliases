@@ -26,6 +26,11 @@ alias cmscorpio='cmfast scorpio_cortex_plugins'
 # Build just the NRG Scorpio package
 alias cmnrg='cmfast nrg_scorpio'
 
+# Change the format of ROS console output. This way you can get rid of the annoying timestamp.
+# The total list of items you can add to this format string is available here:
+# severity message time thread logger file line function
+export ROSCONSOLE_FORMAT='[${severity}] ${message}'
+
 # Sometimes ROS just refuses to die
 alias killros='killall -9 roscore; killall -9 rosmaster'
 
@@ -39,10 +44,10 @@ function clangthis(){
 	if [ "$#" = 0 ]; then
 		find . -name '*.h' -or -name '*.hpp' -or -name '*.cpp' -or -name '*.cc' | xargs clang-format-10 -i -style=file $1
 		echo Clang formatted this folder
-	# Otherwise, clang up to 5 different file inputs
+	# Otherwise, clang all parameter files
 	else
-		clang-format-10 -i -style=file $1 $2 $3 $4 $5
-		echo Clang formatted $1 $2 $3 $4 $5
+		echo Clang formatted "$@"
+		clang-format-10 -i -style=file "$@"
 	fi
 }
 
