@@ -22,7 +22,7 @@ alias cmscorpio='cmfast scorpio_cortex_plugins'
 alias cmnrg='cmfast nrg_scorpio'
 
 # Change the format of ROS console output. This way you can get rid of the annoying timestamp.
-# The total list of items you can add to this format string is available here:
+# The total list of items you can add to this format string includes:
 # severity message time thread logger file line function
 export ROSCONSOLE_FORMAT='[${severity}] ${message}'
 
@@ -41,8 +41,8 @@ function clangthis(){
 		echo Clang formatted this folder
 	# Otherwise, clang all parameter files
 	else
-		echo Clang formatted "$@"
 		clang-format-10 -i -style=file "$@"
+		echo Clang formatted "$@"
 	fi
 }
 
@@ -81,9 +81,6 @@ function brighten(){
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-
-# Set git login info
-alias gitme='git config --global user.name MarkJennings && git config --global user.email markjennings97@gmail.com'
 
 # Double-check before permanently deleting files with rm
 # Warning: Overriding default Linux commands is... controversial
