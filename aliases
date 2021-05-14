@@ -32,14 +32,13 @@ alias killros='killall -9 roscore; killall -9 rosmaster'
 # Print current ROS package path
 alias rpp='echo $ROS_PACKAGE_PATH'
 
-# Format a file, like 'clangfile foo.cpp'
-alias clangfile='clang-format-10 -i -style=file'
+# Clang format either an entire folder or individual files
 function clangthis(){
 	# If no parameters given, clang entire folder (and subfolders)
 	if [ "$#" = 0 ]; then
 		find . -name '*.h' -or -name '*.hpp' -or -name '*.cpp' -or -name '*.cc' | xargs clang-format-10 -i -style=file $1
 		echo Clang formatted this folder
-	# Otherwise, clang all parameter files
+	# If parameter(s) given, clang all parameter files
 	else
 		clang-format-10 -i -style=file "$@"
 		echo Clang formatted "$@"
