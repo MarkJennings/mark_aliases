@@ -16,10 +16,6 @@ alias cm='(exec catkin build -j3 -DCMAKE_BUILD_TYPE=Release --summarize)'
 alias cmclean='(rm -rf build devel && exec catkin build -j3 --summarize)'
 # Build just the package specified after this alias, i.e. 'cmfast my_pkg'
 alias cmfast='catkin build -j3 --no-deps'
-# Build just the external Scorpio package
-alias cmscorpio='cmfast scorpio_cortex_plugins'
-# Build just the NRG Scorpio package
-alias cmnrg='cmfast nrg_scorpio'
 
 # Change the format of ROS console output. This way you can get rid of the annoying timestamp.
 # The total list of items you can add to this format string includes:
@@ -92,10 +88,6 @@ alias zzz='sudo pm-suspend'
 alias wake='sudo service network-manager restart'
 # Test internet connection
 alias pingg='ping www.google.com'
-
-# Open Apptronik doxygen
-export APPTRONIK_WS_PATH=~/apptronik_ws
-alias doxy='firefox ~/apptronik_ws/src/apptronik_core/00_docs/index.html'
 
 # Just for fun: ~3% chance of cow fortunes every time a new terminal is opened :D
 if [ $RANDOM -le 1000 ]; then fortune | cowsay; fi

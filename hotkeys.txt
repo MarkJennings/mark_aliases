@@ -1,0 +1,24 @@
+// Sublime - Copy these to Preferences > Key Bindings:
+{ "keys": ["ctrl+tab"], "command": "next_view" },
+{ "keys": ["ctrl+shift+tab"], "command": "prev_view" },
+
+// VS Code - Default hotkeys:
+Change workspaces/look for file: ctrl + R
+Close workspace: ctrl + K F
+Go to file: ctrl + P (You can type a filename or > followed by an extension (ex. >ROS) to use specific tools)
+Switch files: alt + #key (ctrl+tab to get a recent list)
+Switch panels: ctrl + #key
+Kill file: ctrl + W
+Toggle sidebar: ctrl + B
+Toggle editor group layout (horizontal/vertical): shift + alt + 0
+Toggle text wrapping: alt+z
+Toggle integrated terminal: ctrl + `
+
+// VS Code - Custom hotkeys:
+Open next editor: ctrl + tab
+Open previous editor: ctrl + shift + tab
+Split terminal: ctrl+ alt + N
+Kill terminal: ctrl + alt + W
+Change terminal: ctrl + alt + #key
+Move panel: ctrl + win + alt + arrowkey
+Maximize panel: ctrl + alt + `
